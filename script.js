@@ -1,3 +1,5 @@
+const addButtonEl = document.querySelector(".btn-add");
+
 let myLibrary = [];
 
 function Book(title, author, pages, category, completed) {
@@ -24,15 +26,18 @@ const createNewBook = function () {
   newBook = new Book(title, author, pages, category, completed);
 };
 
-createNewBook();
-
 function addBookToLibrary() {
+  createNewBook();
   myLibrary.push(newBook);
+  console.log(newBook);
+  console.log(newBook.info());
+  console.log(myLibrary);
 }
 
-console.log(newBook);
-console.log(newBook.info());
+const addButtonHandler = function () {
+  addButtonEl.addEventListener("click", function () {
+    addBookToLibrary();
+  });
+};
 
-addBookToLibrary();
-
-console.log(myLibrary);
+addButtonHandler();
