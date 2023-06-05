@@ -19,12 +19,35 @@
   </header>
   <main>
     <div class="books-container">
-      <div class=book>book1</div>
-      <div class=book>book2</div>
-      <div class=book>book3</div>
-      <div class=book>book4</div>
     </div>
   </main>
+  <div class="form-container">
+    <form id="add-book" action="#">
+      <div class="form-row">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text">
+      </div>
+      <div class="form-row">
+        <label for="author">Author</label>
+        <input id="author" name="author" type="text">
+      </div>
+      <div class="form-row">
+        <label for="pages">Pages</label>
+        <input id="pages" name="pages" type="number">
+      </div>
+      <div class="form-row">
+        <label for="category">Category</label>
+        <input id="category" name="category" type="text">
+      </div>
+      <div class="form-row">
+        <label for="completed">Completed</label>
+        <input id="completed" name="completed" type="checkbox">
+      </div>
+      <div class="form-row">
+        <button id="btn-save" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
   <script src="script.js"></script>
 </body>
 
