@@ -22,25 +22,105 @@ h6 {
 
 body {
   background-color: darkslategray;
-  color: orange;
+  color: springgreen;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 8px 15px 8px 15px;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 
-.books-container {
+.form-container {
+  background-color: turquoise;
+  border-radius: 5px 5px 15px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+form#add-book {
+  color: black;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
   gap: 10px;
+  padding: 10px 5px 10px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
-.book {
-  background-color: slateblue;
+form #title {
+  grid-column: 1 / 3;
+}
+
+form #author {
+  grid-column: 3 / 5;
+}
+
+form #pages {
+  grid-column: 1 / 2;
+}
+
+form #category {
+  grid-column: 2 / 4;
+}
+
+form #completed {
+  grid-column: 4 / 5;
+}
+
+button#btn-save {
+  background-color: aquamarine;
+  color: black;
+  font-size: large;
+  font-weight: 900;
+  height: 50px;
+  border-radius: 0px 0px 8px 8px;
+  border: none;
+}
+
+form label {
+  text-align: end;
+}
+
+form input {
+  flex: 1;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
   padding: 5px;
-  margin: 5px;
+}
+
+form input:focus {
+  background-color: lavender;
+  outline: 2px solid salmon;
+}
+
+form .checkbox-container {
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+form .checkbox-container > label {
+  flex: 0.5;
+  font-size: small;
+}
+
+form input[type="checkbox"] {
+  height: 25px;
+  border-radius: 5px;
+  justify-self: end;
+  padding: 0px;
+  margin: 0px;
+}
+
+form input[type="checkbox"]:focus {
+  outline: none;
 }
