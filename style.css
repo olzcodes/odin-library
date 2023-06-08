@@ -223,13 +223,34 @@ th {
 .th-completed,
 .td-completed {
   width: 8%;
-  text-align: end;
+  text-align: center;
+}
+
+.th-remove,
+.td-remove {
+  width: 5%;
+  align-items: center;
+  text-align: center;
   padding-right: 15px;
+  padding-left: 15px;
+}
+
+.th-remove svg {
+  height: 20px;
+}
+
+.td-remove:hover {
+  cursor: pointer;
 }
 
 tr:hover {
   background-color: darkcyan;
   color: cyan;
+  font-weight: 900;
+}
+
+tr:hover .remove-button {
+  color: salmon;
 }
 
 td {
