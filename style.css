@@ -34,11 +34,51 @@ header {
   margin-bottom: 10px;
 }
 
+h1 {
+  display: flex;
+  font-size: x-large;
+}
+
+h1:hover {
+  color: cyan;
+}
+
+.menu {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.menu button {
+  color: springgreen;
+  background-color: darkslategray;
+  border-radius: 5px;
+  border: 2px solid springgreen;
+  padding: 5px;
+  /* margin: 10px; */
+}
+
+.menu button:hover {
+  color: cyan;
+  background-color: darkcyan;
+  border: 2px solid cyan;
+}
+
+main {
+  width: 100%;
+}
+
 .form-container {
-  background-color: turquoise;
+  background-color: darkslategray;
   border-radius: 5px 5px 15px 15px;
+  border: 2px solid springgreen;
   display: flex;
   flex-direction: column;
+}
+
+.form-container:hover {
+  background-color: darkturquoise;
+  border: 2px solid cyan;
 }
 
 form#add-book {
@@ -48,7 +88,7 @@ form#add-book {
   grid-template-rows: 1fr 1fr;
   align-items: center;
   gap: 10px;
-  padding: 10px 5px 10px;
+  padding: 20px 5px 10px;
   padding-right: 15px;
   padding-left: 15px;
 }
@@ -74,13 +114,20 @@ form #completed {
 }
 
 button#btn-save {
-  background-color: aquamarine;
-  color: black;
+  background-color: darkslategray;
+  color: springgreen;
   font-size: large;
   font-weight: 900;
   height: 50px;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 0px 0px 12px 12px;
   border: none;
+  border-top: 1px solid springgreen;
+  margin-top: 10px;
+}
+
+button#btn-save:hover {
+  background-color: darkcyan;
+  color: cyan;
 }
 
 form label {
@@ -90,22 +137,27 @@ form label {
 form input {
   flex: 1;
   height: 25px;
+  background-color: paleturquoise;
   border: none;
   border-radius: 5px;
   padding: 5px;
 }
 
 form input:focus {
-  background-color: lavender;
-  outline: 2px solid salmon;
+  background-color: aquamarine;
+  outline: none;
 }
 
 form .checkbox-container {
-  background-color: white;
+  background-color: paleturquoise;
   border-radius: 5px;
   display: flex;
   justify-content: start;
   align-items: center;
+}
+
+form .checkbox-container:active {
+  background-color: aquamarine;
 }
 
 form .checkbox-container > label {
@@ -123,4 +175,65 @@ form input[type="checkbox"] {
 
 form input[type="checkbox"]:focus {
   outline: none;
+}
+
+.books-table {
+  width: 100%;
+  font-size: 14px;
+  margin: 20px 0px 10px;
+}
+
+th {
+  color: springgreen;
+  font-size: 16px;
+  text-align: center;
+  border-bottom: 1px solid springgreen;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.th-title,
+.td-title {
+  width: 25%;
+  text-align: start;
+  padding-left: 15px;
+}
+
+.th-author,
+.td-author {
+  width: 15%;
+  text-align: start;
+  padding-left: 15px;
+}
+
+.th-pages,
+.td-pages {
+  width: 8%;
+  text-align: end;
+  padding-right: 15px;
+}
+
+.th-category,
+.td-category {
+  width: 12%;
+  text-align: center;
+  padding-left: 15px;
+}
+
+.th-completed,
+.td-completed {
+  width: 8%;
+  text-align: end;
+  padding-right: 15px;
+}
+
+tr:hover {
+  background-color: darkcyan;
+  color: cyan;
+}
+
+td {
+  text-align: start;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
