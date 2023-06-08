@@ -1,6 +1,85 @@
-const addButtonEl = document.querySelector(".btn-add");
+const saveButtonEl = document.querySelector("#btn-save");
+const mainEl = document.querySelector("main");
+const tableBodyEl = document.querySelector(".table-body");
 
-let myLibrary = [];
+const inputTitleEl = document.querySelector("#title");
+const inputAuthorEl = document.querySelector("#author");
+const inputPagesEl = document.querySelector("#pages");
+const inputCategoryEl = document.querySelector("#category");
+const inputCompletedEl = document.querySelector("#completed");
+
+let myLibrary = [
+  {
+    title: "Everything About Poop",
+    author: "Unknown",
+    pages: "12",
+    category: "Self-help",
+    completed: true,
+  },
+  {
+    title: "Poop For Dummies",
+    author: "Unknown",
+    pages: "6",
+    category: "Self-help",
+    completed: true,
+  },
+  {
+    title: "Poop For Dummies - Part 2",
+    author: "Unknown",
+    pages: "8",
+    category: "Self-help",
+    completed: true,
+  },
+  {
+    title: "The Wonderful World of Poop",
+    author: "Unknown",
+    pages: "32",
+    category: "Fiction",
+    completed: true,
+  },
+  {
+    title: "The Lord of the Poops",
+    author: "Unknown",
+    pages: "580",
+    category: "Adventure",
+    completed: false,
+  },
+  {
+    title: "101 Ways to Poop",
+    author: "Unknown",
+    pages: "75",
+    category: "Self-help",
+    completed: false,
+  },
+  {
+    title: "Anthology of Poop",
+    author: "Unknown",
+    pages: "214",
+    category: "History",
+    completed: false,
+  },
+  {
+    title: "Return of the Poop",
+    author: "Unknown",
+    pages: "587",
+    category: "Adventure",
+    completed: false,
+  },
+  {
+    title: "2023: A Poop Odyssey",
+    author: "Unknown",
+    pages: "69",
+    category: "Sci-Fi",
+    completed: false,
+  },
+  {
+    title: "200 Recipes for Giant Poops",
+    author: "Unknown",
+    pages: "250",
+    category: "Cooking",
+    completed: false,
+  },
+];
 
 function Book(title, author, pages, category, completed) {
   this.title = title;
@@ -17,27 +96,60 @@ Book.prototype.info = function () {
 let newBook = {};
 
 const createNewBook = function () {
-  const title = prompt("Please enter TITLE");
-  const author = prompt("Please enter AUTHOR");
-  const pages = prompt("Please enter PAGES");
-  const category = prompt("Please enter CATEGORY");
-  const completed = false;
+  const title = inputTitleEl.value;
+  const author = inputAuthorEl.value;
+  const pages = inputPagesEl.value;
+  const category = inputCategoryEl.value;
+  const completed = inputCompletedEl.checked;
 
   newBook = new Book(title, author, pages, category, completed);
 };
 
-function addBookToLibrary() {
+const addBookToLibrary = function () {
   createNewBook();
   myLibrary.push(newBook);
   console.log(newBook);
   console.log(newBook.info());
   console.log(myLibrary);
-}
+  displayAllBooks();
+};
 
-const addButtonHandler = function () {
-  addButtonEl.addEventListener("click", function () {
+const displayAllBooks = function () {
+  tableBodyEl.innerHTML = ``;
+  for (book of myLibrary) {
+    title = book.title;
+    author = book.author;
+    pages = book.pages;
+    category = book.category;
+    completed = book.completed;
+    tableBodyEl.innerHTML += `
+    <tr>
+    <td class="td-title">
+        ${title}
+      </td>
+      <td class="td-author">
+        ${author}
+      </td>
+      <td class="td-pages">
+        ${pages}
+      </td>
+      <td class="td-category">
+        ${category}
+      </td>
+      <td class="td-completed">
+        ${completed}
+      </td>
+    </tr>
+    `;
+  }
+};
+
+displayAllBooks();
+
+const saveButtonHandler = function () {
+  saveButtonEl.addEventListener("click", function () {
     addBookToLibrary();
   });
 };
 
-addButtonHandler();
+saveButtonHandler();
