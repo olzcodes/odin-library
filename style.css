@@ -229,6 +229,7 @@ th {
 .th-remove,
 .td-remove {
   width: 5%;
+  font-size: larger;
   align-items: center;
   text-align: center;
   padding-right: 15px;
@@ -239,14 +240,13 @@ th {
   height: 20px;
 }
 
-.td-remove:hover {
+.remove-button:hover {
   cursor: pointer;
 }
 
 tr:hover {
   background-color: darkcyan;
   color: cyan;
-  font-weight: 900;
 }
 
 tr:hover .remove-button {
