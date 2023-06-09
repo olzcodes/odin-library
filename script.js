@@ -122,6 +122,7 @@ const displayAllBooks = function () {
     pages = book.pages;
     category = book.category;
     completed = book.completed;
+    book_id = myLibrary.indexOf(book);
     tableBodyEl.innerHTML += `
     <tr>
     <td class="td-title">
@@ -139,6 +140,11 @@ const displayAllBooks = function () {
       <td class="td-completed">
         ${completed}
       </td>
+      <td class="td-remove">
+      <div class="remove-button" data-book_id="${book_id}">
+        x
+      </div>
+      </td>
     </tr>
     `;
   }
@@ -153,3 +159,20 @@ const saveButtonHandler = function () {
 };
 
 saveButtonHandler();
+
+const removeBookFromLibrary = function (book_id) {
+  myLibrary.splice(book_id, 1);
+  displayAllBooks();
+  removeButtonHandler();
+};
+
+const removeButtonHandler = function () {
+  const removeButtonNodeList = document.querySelectorAll(".remove-button");
+  removeButtonNodeList.forEach((button) =>
+    button.addEventListener("click", function () {
+      removeBookFromLibrary(button.dataset.book_id);
+    })
+  );
+};
+
+removeButtonHandler();
