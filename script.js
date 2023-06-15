@@ -186,7 +186,7 @@ const findBookIndex = function (bookId) {
 const removeBookFromLibrary = function (bookId, button) {
   let bookIndex = findBookIndex(bookId);
   myLibrary.splice(bookIndex, 1);
-  button.parentElement.parentElement.remove();
+  button.parentNode.parentNode.remove();
 };
 
 const removeButtonHandler = function () {
