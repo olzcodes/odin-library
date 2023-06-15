@@ -124,6 +124,7 @@ const addBookToLibrary = function () {
   console.log(myLibrary);
   displayAllBooks();
   removeButtonHandler();
+  completedToggleHandler();
 };
 
 const displayAllBooks = function () {
@@ -133,7 +134,7 @@ const displayAllBooks = function () {
     author = book.author;
     pages = book.pages;
     category = book.category;
-    completed = book.completed;
+    book.completed ? (completed = "Read") : (completed = "Not Read");
     bookId = book.bookId;
     tableBodyEl.innerHTML += `
     <tr>
@@ -150,7 +151,9 @@ const displayAllBooks = function () {
         ${category}
       </td>
       <td class="td-completed">
-        ${completed}
+        <div class="completed-toggle" data-book-id="${bookId}">
+          ${completed}
+        </div>
       </td>
       <td class="td-remove">
         <div class="remove-button" data-book-id="${bookId}">
@@ -172,13 +175,16 @@ const saveButtonHandler = function () {
 
 saveButtonHandler();
 
-const removeBookFromLibrary = function (bookId, button) {
-  let bookIndex = "";
+const findBookIndex = function (bookId) {
   for (book of myLibrary) {
     if (book.bookId == bookId) {
-      bookIndex = myLibrary.indexOf(book);
+      return myLibrary.indexOf(book);
     }
   }
+};
+
+const removeBookFromLibrary = function (bookId, button) {
+  let bookIndex = findBookIndex(bookId);
   myLibrary.splice(bookIndex, 1);
   button.parentElement.parentElement.remove();
 };
@@ -193,3 +199,26 @@ const removeButtonHandler = function () {
 };
 
 removeButtonHandler();
+
+const toggleStatus = function (bookId, toggle) {
+  let bookIndex = findBookIndex(bookId);
+  if (myLibrary[bookIndex].completed) {
+    myLibrary[bookIndex].completed = false;
+    toggle.textContent = "Not Read";
+  } else {
+    myLibrary[bookIndex].completed = true;
+    toggle.textContent = "Read";
+  }
+};
+
+const completedToggleHandler = function () {
+  const completedToggleNodeList =
+    document.querySelectorAll(".completed-toggle");
+  completedToggleNodeList.forEach((toggle) =>
+    toggle.addEventListener("click", function () {
+      toggleStatus(toggle.dataset.bookId, toggle);
+    })
+  );
+};
+
+completedToggleHandler();
