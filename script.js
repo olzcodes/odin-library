@@ -134,8 +134,8 @@ const displayAllBooks = function () {
     author = book.author;
     pages = book.pages;
     category = book.category;
-    book.completed ? (readStatus = "Read") : (readStatus = "Not Read");
-    book.completed ? (cssClass = "read") : (cssClass = "not-read");
+    book.completed ? (readStatus = "Read") : (readStatus = "Unread");
+    book.completed ? (cssClass = "read") : (cssClass = "unread");
     bookId = book.bookId;
     tableBodyEl.innerHTML += `
     <tr>
@@ -205,7 +205,7 @@ const toggleStatus = function (bookId, toggle) {
   let bookIndex = findBookIndex(bookId);
   if (myLibrary[bookIndex].completed) {
     myLibrary[bookIndex].completed = false;
-    toggle.textContent = "Not Read";
+    toggle.textContent = "Unread";
     toggle.classList.remove("read");
   } else {
     myLibrary[bookIndex].completed = true;
