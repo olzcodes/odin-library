@@ -15,6 +15,7 @@ let myLibrary = [
     pages: "12",
     category: "Self-help",
     completed: true,
+    bookId: 1,
   },
   {
     title: "Poop For Dummies",
@@ -22,6 +23,7 @@ let myLibrary = [
     pages: "6",
     category: "Self-help",
     completed: true,
+    bookId: 2,
   },
   {
     title: "Poop For Dummies - Part 2",
@@ -29,6 +31,7 @@ let myLibrary = [
     pages: "8",
     category: "Self-help",
     completed: true,
+    bookId: 3,
   },
   {
     title: "The Wonderful World of Poop",
@@ -36,6 +39,7 @@ let myLibrary = [
     pages: "32",
     category: "Fiction",
     completed: true,
+    bookId: 4,
   },
   {
     title: "The Lord of the Poops",
@@ -43,6 +47,7 @@ let myLibrary = [
     pages: "580",
     category: "Adventure",
     completed: false,
+    bookId: 5,
   },
   {
     title: "101 Ways to Poop",
@@ -50,6 +55,7 @@ let myLibrary = [
     pages: "75",
     category: "Self-help",
     completed: false,
+    bookId: 6,
   },
   {
     title: "Anthology of Poop",
@@ -57,6 +63,7 @@ let myLibrary = [
     pages: "214",
     category: "History",
     completed: false,
+    bookId: 7,
   },
   {
     title: "Return of the Poop",
@@ -64,6 +71,7 @@ let myLibrary = [
     pages: "587",
     category: "Adventure",
     completed: false,
+    bookId: 8,
   },
   {
     title: "2023: A Poop Odyssey",
@@ -71,6 +79,7 @@ let myLibrary = [
     pages: "69",
     category: "Sci-Fi",
     completed: false,
+    bookId: 9,
   },
   {
     title: "200 Recipes for Giant Poops",
@@ -78,6 +87,7 @@ let myLibrary = [
     pages: "250",
     category: "Cooking",
     completed: false,
+    bookId: 10,
   },
 ];
 
@@ -107,11 +117,13 @@ const createNewBook = function () {
 
 const addBookToLibrary = function () {
   createNewBook();
+  newBook.bookId = new Date().getTime();
   myLibrary.push(newBook);
   console.log(newBook);
   console.log(newBook.info());
   console.log(myLibrary);
   displayAllBooks();
+  removeButtonHandler();
 };
 
 const displayAllBooks = function () {
@@ -122,7 +134,7 @@ const displayAllBooks = function () {
     pages = book.pages;
     category = book.category;
     completed = book.completed;
-    book_id = myLibrary.indexOf(book);
+    bookId = book.bookId;
     tableBodyEl.innerHTML += `
     <tr>
     <td class="td-title">
@@ -141,9 +153,9 @@ const displayAllBooks = function () {
         ${completed}
       </td>
       <td class="td-remove">
-      <div class="remove-button" data-book_id="${book_id}">
-        x
-      </div>
+        <div class="remove-button" data-book-id="${bookId}">
+          x
+        </div>
       </td>
     </tr>
     `;
@@ -160,17 +172,22 @@ const saveButtonHandler = function () {
 
 saveButtonHandler();
 
-const removeBookFromLibrary = function (book_id) {
-  myLibrary.splice(book_id, 1);
-  displayAllBooks();
-  removeButtonHandler();
+const removeBookFromLibrary = function (bookId, button) {
+  let bookIndex = "";
+  for (book of myLibrary) {
+    if (book.bookId == bookId) {
+      bookIndex = myLibrary.indexOf(book);
+    }
+  }
+  myLibrary.splice(bookIndex, 1);
+  button.parentElement.parentElement.remove();
 };
 
 const removeButtonHandler = function () {
   const removeButtonNodeList = document.querySelectorAll(".remove-button");
   removeButtonNodeList.forEach((button) =>
     button.addEventListener("click", function () {
-      removeBookFromLibrary(button.dataset.book_id);
+      removeBookFromLibrary(button.dataset.bookId, button);
     })
   );
 };
