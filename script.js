@@ -134,7 +134,8 @@ const displayAllBooks = function () {
     author = book.author;
     pages = book.pages;
     category = book.category;
-    book.completed ? (completed = "Read") : (completed = "Not Read");
+    book.completed ? (readStatus = "Read") : (readStatus = "Not Read");
+    book.completed ? (cssClass = "read") : (cssClass = "not-read");
     bookId = book.bookId;
     tableBodyEl.innerHTML += `
     <tr>
@@ -151,8 +152,8 @@ const displayAllBooks = function () {
         ${category}
       </td>
       <td class="td-completed">
-        <div class="completed-toggle" data-book-id="${bookId}">
-          ${completed}
+        <div class="completed-toggle ${cssClass}" data-book-id="${bookId}">
+          ${readStatus}
         </div>
       </td>
       <td class="td-remove">
@@ -205,9 +206,11 @@ const toggleStatus = function (bookId, toggle) {
   if (myLibrary[bookIndex].completed) {
     myLibrary[bookIndex].completed = false;
     toggle.textContent = "Not Read";
+    toggle.classList.remove("read");
   } else {
     myLibrary[bookIndex].completed = true;
     toggle.textContent = "Read";
+    toggle.classList.add("read");
   }
 };
 
