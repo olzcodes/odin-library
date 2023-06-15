@@ -232,12 +232,35 @@ th {
   font-size: larger;
   align-items: center;
   text-align: center;
+  color: salmon;
   padding-right: 15px;
   padding-left: 15px;
 }
 
 .th-remove svg {
   height: 20px;
+}
+
+.completed-toggle {
+  cursor: pointer;
+  background-color: cadetblue;
+  color: gainsboro;
+  font-weight: 700;
+  border: 2px solid cadetblue;
+  border-radius: 5px;
+  padding: 2px;
+  transition-property: color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+  transition-delay: 0s;
+}
+
+.completed-toggle.read {
+  color: darkslategray;
+  transition-property: color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+  transition-delay: 0s;
 }
 
 .remove-button:hover {
@@ -249,8 +272,8 @@ tr:hover {
   color: cyan;
 }
 
-tr:hover .remove-button {
-  color: salmon;
+tr:hover .completed-toggle {
+  border: 2px solid cyan;
 }
 
 td {
