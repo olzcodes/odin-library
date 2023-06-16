@@ -25,6 +25,8 @@ body {
   color: springgreen;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 8px 15px 8px 15px;
+  height: 100%;
+  overflow-y: hidden;
 }
 
 header {
@@ -57,7 +59,6 @@ h1:hover {
   border-radius: 5px;
   border: 2px solid springgreen;
   padding: 5px;
-  /* margin: 10px; */
 }
 
 .menu button:hover {
@@ -78,11 +79,6 @@ main {
   border: 2px solid springgreen;
   display: flex;
   flex-direction: column;
-}
-
-.form-container:hover {
-  background-color: darkturquoise;
-  border: 2px solid cyan;
 }
 
 form#add-book {
@@ -113,8 +109,13 @@ form #category {
   grid-column: 2 / 4;
 }
 
+label#label-completed {
+  padding: 0px 5px 0px;
+}
+
 form #completed {
   grid-column: 4 / 5;
+  margin-right: 5px;
 }
 
 button#btn-save {
@@ -132,6 +133,21 @@ button#btn-save {
 button#btn-save:hover {
   background-color: darkcyan;
   color: cyan;
+  border-top: 1px solid cyan;
+}
+
+button#btn-save:active {
+  background-color: springgreen;
+  color: darkcyan;
+  border-top: 1px solid cyan;
+}
+
+.form-container:hover {
+  border: 2px solid cyan;
+}
+
+.form-container:hover button#btn-save {
+  border-top: 1px solid cyan;
 }
 
 form label {
@@ -182,7 +198,9 @@ form input[type="checkbox"]:focus {
 }
 
 .table-container {
+  height: 800px;
   overflow-x: auto;
+  overflow-y: auto;
 }
 
 table {
@@ -192,7 +210,10 @@ table {
 }
 
 th {
+  position: sticky;
+  top: 0;
   color: springgreen;
+  background-color: darkslategray;
   font-size: 16px;
   text-align: center;
   border-bottom: 1px solid springgreen;
