@@ -326,13 +326,3 @@ td {
   padding-bottom: 8px;
   border-bottom: 1px solid springgreen;
 }
-
-td:hover {
-  color: cyan;
-}
-
-.completed-toggle:hover {
-  color: cyan;
-  background-color: darkcyan;
-  border: 2px solid cyan;
-}
