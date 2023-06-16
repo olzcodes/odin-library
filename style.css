@@ -26,7 +26,6 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 8px 15px 8px 15px;
   height: 100%;
-  overflow-y: hidden;
 }
 
 header {
