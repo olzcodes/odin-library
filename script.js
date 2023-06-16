@@ -10,38 +10,6 @@ const inputCompletedEl = document.querySelector("#completed");
 
 let myLibrary = [
   {
-    title: "Everything About Poop",
-    author: "Unknown",
-    pages: "12",
-    category: "Self-help",
-    completed: true,
-    bookId: 1,
-  },
-  {
-    title: "Poop For Dummies",
-    author: "Unknown",
-    pages: "6",
-    category: "Self-help",
-    completed: true,
-    bookId: 2,
-  },
-  {
-    title: "Poop For Dummies - Part 2",
-    author: "Unknown",
-    pages: "8",
-    category: "Self-help",
-    completed: true,
-    bookId: 3,
-  },
-  {
-    title: "The Wonderful World of Poop",
-    author: "Unknown",
-    pages: "32",
-    category: "Fiction",
-    completed: true,
-    bookId: 4,
-  },
-  {
     title: "The Lord of the Poops",
     author: "Unknown",
     pages: "580",
@@ -88,6 +56,38 @@ let myLibrary = [
     category: "Cooking",
     completed: false,
     bookId: 10,
+  },
+  {
+    title: "Everything About Poop",
+    author: "Unknown",
+    pages: "12",
+    category: "Self-help",
+    completed: true,
+    bookId: 1,
+  },
+  {
+    title: "Poop For Dummies",
+    author: "Unknown",
+    pages: "6",
+    category: "Self-help",
+    completed: true,
+    bookId: 2,
+  },
+  {
+    title: "Poop For Dummies - Part 2",
+    author: "Unknown",
+    pages: "8",
+    category: "Self-help",
+    completed: true,
+    bookId: 3,
+  },
+  {
+    title: "The Wonderful World of Poop",
+    author: "Unknown",
+    pages: "32",
+    category: "Fiction",
+    completed: true,
+    bookId: 4,
   },
 ];
 
