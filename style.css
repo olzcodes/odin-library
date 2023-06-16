@@ -28,6 +28,8 @@ body {
 }
 
 header {
+  position: sticky;
+  top: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,6 +71,8 @@ main {
 }
 
 .form-container {
+  position: sticky;
+  top: 5px;
   background-color: darkslategray;
   border-radius: 5px 5px 15px 15px;
   border: 2px solid springgreen;
