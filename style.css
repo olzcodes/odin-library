@@ -21,14 +21,17 @@ h6 {
 }
 
 body {
+  height: 100%;
   background-color: darkslategray;
   color: springgreen;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 8px 15px 8px 15px;
-  height: 100%;
 }
 
 header {
+  position: sticky;
+  z-index: 0;
+  top: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,6 +72,9 @@ main {
 }
 
 .form-container {
+  position: sticky;
+  z-index: 1;
+  top: 45px;
   background-color: darkslategray;
   border-radius: 5px 5px 15px 15px;
   border: 2px solid springgreen;
@@ -193,7 +199,6 @@ form input[type="checkbox"]:focus {
 }
 
 .table-container {
-  height: 800px;
   overflow-x: auto;
   overflow-y: auto;
 }
@@ -201,12 +206,10 @@ form input[type="checkbox"]:focus {
 table {
   width: max(500px, 100%);
   font-size: 14px;
-  margin: 20px 0px 10px;
+  margin: 10px 0px 10px;
 }
 
 th {
-  position: sticky;
-  top: 0;
   color: springgreen;
   background-color: darkslategray;
   font-size: 16px;
