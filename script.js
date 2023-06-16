@@ -118,7 +118,7 @@ const createNewBook = function () {
 const addBookToLibrary = function () {
   createNewBook();
   newBook.bookId = new Date().getTime();
-  myLibrary.push(newBook);
+  myLibrary.unshift(newBook);
   console.log(newBook);
   console.log(newBook.info());
   console.log(myLibrary);
