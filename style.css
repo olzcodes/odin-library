@@ -158,19 +158,23 @@ form label {
 form input {
   flex: 1;
   height: 25px;
-  background-color: paleturquoise;
-  border: none;
+  background-color: darkslategray;
+  color: springgreen;
+  border: 1px solid springgreen;
   border-radius: 5px;
+  caret-color: whitesmoke;
   padding: 5px;
 }
 
 form input:focus {
-  background-color: aquamarine;
+  background-color: darkcyan;
   outline: none;
 }
 
 form .checkbox-container {
-  background-color: paleturquoise;
+  background-color: darkslategray;
+  color: springgreen;
+  border: 1px solid springgreen;
   border-radius: 5px;
   display: flex;
   justify-content: start;
@@ -178,7 +182,7 @@ form .checkbox-container {
 }
 
 form .checkbox-container:active {
-  background-color: aquamarine;
+  background-color: darkcyan;
 }
 
 form .checkbox-container > label {
@@ -201,6 +205,11 @@ form input[type="checkbox"]:focus {
 .table-container {
   overflow-x: auto;
   overflow-y: auto;
+}
+
+::placeholder {
+  color: springgreen;
+  opacity: 0.5;
 }
 
 table {
