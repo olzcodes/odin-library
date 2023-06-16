@@ -194,47 +194,47 @@ th {
 
 .th-title,
 .td-title {
-  width: 25%;
+  /* width: 25%; */
   text-align: start;
-  padding-left: 15px;
+  /* padding-left: 15px; */
 }
 
 .th-author,
 .td-author {
-  width: 15%;
+  /* width: 15%; */
   text-align: start;
-  padding-left: 15px;
+  /* padding-left: 15px; */
 }
 
 .th-pages,
 .td-pages {
-  width: 8%;
+  /* width: 8%; */
   text-align: end;
-  padding-right: 15px;
+  /* padding-right: 15px; */
 }
 
 .th-category,
 .td-category {
-  width: 12%;
+  /* width: 12%; */
   text-align: center;
-  padding-left: 15px;
+  /* padding-left: 15px; */
 }
 
 .th-completed,
 .td-completed {
-  width: 8%;
+  /* width: 8%; */
   text-align: center;
 }
 
 .th-remove,
 .td-remove {
-  width: 5%;
+  /* width: 5%; */
   font-size: larger;
-  align-items: center;
   text-align: center;
   color: salmon;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 13px;
 }
 
 .th-remove svg {
@@ -243,22 +243,38 @@ th {
 
 .completed-toggle {
   cursor: pointer;
-  background-color: cadetblue;
-  color: gainsboro;
-  font-weight: 700;
-  border: 2px solid cadetblue;
+  background-color: none;
+  color: springgreen;
+  border: 2px solid springgreen;
   border-radius: 5px;
-  padding: 2px;
-  transition-property: color;
-  transition-duration: 0.2s;
+  padding: 3px 5px 3px;
+  transition-property: color border;
+  transition-duration: 0.3s;
   transition-timing-function: ease-in;
   transition-delay: 0s;
 }
 
 .completed-toggle.read {
-  color: darkslategray;
-  transition-property: color;
-  transition-duration: 0.2s;
+  color: silver;
+  border: 2px solid silver;
+  transition-property: color border;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+  transition-delay: 0s;
+}
+
+tr {
+  color: springgreen;
+  transition-property: color border;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+  transition-delay: 0s;
+}
+
+tr.read {
+  color: silver;
+  transition-property: color border;
+  transition-duration: 0.3s;
   transition-timing-function: ease-in;
   transition-delay: 0s;
 }
@@ -267,12 +283,12 @@ th {
   cursor: pointer;
 }
 
-tr:hover {
+td:active {
   background-color: darkcyan;
-  color: cyan;
+  color: greenyellow;
 }
 
-tr:hover .completed-toggle {
+tr:active .completed-toggle {
   border: 2px solid cyan;
 }
 
@@ -280,4 +296,15 @@ td {
   text-align: start;
   padding-top: 8px;
   padding-bottom: 8px;
+  border-bottom: 1px solid springgreen;
+}
+
+td:hover {
+  color: cyan;
+}
+
+.completed-toggle:hover {
+  color: cyan;
+  background-color: darkcyan;
+  border: 2px solid cyan;
 }
