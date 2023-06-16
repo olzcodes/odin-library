@@ -177,8 +177,12 @@ form input[type="checkbox"]:focus {
   outline: none;
 }
 
-.books-table {
-  width: 100%;
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: max(500px, 100%);
   font-size: 14px;
   margin: 20px 0px 10px;
 }
