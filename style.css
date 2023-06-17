@@ -227,6 +227,11 @@ form input[type="checkbox"]:focus {
   margin-top: -7px;
 }
 
+.toggle-form #btn-plus:hover,
+.toggle-form #btn-minus:hover {
+  fill: cyan;
+}
+
 .hidden {
   display: none;
 }
