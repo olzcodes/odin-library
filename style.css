@@ -45,6 +45,7 @@ h1 {
 
 h1:hover {
   color: cyan;
+  cursor: pointer;
 }
 
 .menu {
@@ -65,6 +66,7 @@ h1:hover {
   color: cyan;
   background-color: darkcyan;
   border: 2px solid cyan;
+  cursor: pointer;
 }
 
 main {
@@ -114,9 +116,17 @@ label#label-completed {
   padding: 0px 5px 0px;
 }
 
+label#label-completed:hover {
+  cursor: pointer;
+}
+
 form #completed {
   grid-column: 4 / 5;
   margin-right: 5px;
+}
+
+form #completed:hover {
+  cursor: pointer;
 }
 
 button#btn-save {
@@ -136,6 +146,7 @@ button#btn-save:hover {
   background-color: darkcyan;
   color: cyan;
   border-top: 1px solid cyan;
+  cursor: pointer;
 }
 
 button#btn-save:active {
@@ -170,6 +181,11 @@ form input {
 form input:focus {
   background-color: darkcyan;
   outline: none;
+}
+
+form input:hover {
+  background-color: none;
+  border: 1px solid cyan;
 }
 
 form .checkbox-container {
@@ -231,6 +247,7 @@ form input[type="checkbox"]:focus {
 .form-drawer #btn-plus:hover,
 .form-drawer #btn-minus:hover {
   fill: cyan;
+  cursor: pointer;
 }
 
 .hidden {
