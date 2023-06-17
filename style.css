@@ -213,22 +213,23 @@ form input[type="checkbox"]:focus {
   opacity: 0.5;
 }
 
-.toggle-form {
+.form-drawer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-top: 2px solid springgreen;
 }
 
-.toggle-form #btn-plus,
-.toggle-form #btn-minus {
+.form-drawer #btn-plus,
+.form-drawer #btn-minus {
   height: 38px;
   fill: springgreen;
   margin-top: -7px;
 }
 
-.toggle-form #btn-plus:hover,
-.toggle-form #btn-minus:hover {
+.form-drawer #btn-plus:hover,
+.form-drawer #btn-minus:hover {
   fill: cyan;
 }
 
