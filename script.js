@@ -172,6 +172,7 @@ displayAllBooks();
 
 const saveButtonHandler = function () {
   saveButtonEl.addEventListener("click", function () {
+    if (!inputTitleEl.value || !inputAuthorEl.value) return;
     addBookToLibrary();
   });
 };
