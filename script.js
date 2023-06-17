@@ -104,7 +104,7 @@ function Book(title, author, pages, category, completed) {
 }
 
 Book.prototype.info = function () {
-  return `${this.title} by ${this.author}, ${this.pages} pages, completed: ${this.completed}`;
+  return `'${this.title}' by ${this.author}, ${this.pages} pages`;
 };
 
 let newBook = {};
@@ -123,9 +123,7 @@ const addBookToLibrary = function () {
   createNewBook();
   newBook.bookId = new Date().getTime();
   myLibrary.unshift(newBook);
-  console.log(newBook);
   console.log(newBook.info());
-  console.log(myLibrary);
   displayAllBooks();
   removeButtonHandler();
   completedToggleHandler();
