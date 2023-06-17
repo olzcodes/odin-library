@@ -269,6 +269,19 @@ th {
   /* padding-left: 15px; */
 }
 
+.th-title-text {
+}
+
+.btn-toggle-columns {
+  color: darkcyan;
+  background-color: springgreen;
+  border: 1px solid darkcyan;
+  border-radius: 4px;
+  float: right;
+  margin-right: 10px;
+  padding: 0px 5px 2px;
+}
+
 .th-author,
 .td-author {
   /* width: 15%; */
