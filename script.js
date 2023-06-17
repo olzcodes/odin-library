@@ -190,6 +190,10 @@ const findBookIndex = function (bookId) {
 
 const removeBookFromLibrary = function (bookId, button) {
   let bookIndex = findBookIndex(bookId);
+  const confirmedByUser = confirm(
+    `Remove '${myLibrary[bookIndex].title}' by ${myLibrary[bookIndex].author}?`
+  );
+  if (!confirmedByUser) return;
   myLibrary.splice(bookIndex, 1);
   button.parentNode.parentNode.remove();
 };
