@@ -1,12 +1,15 @@
-const saveButtonEl = document.querySelector("#btn-save");
-const mainEl = document.querySelector("main");
-const tableBodyEl = document.querySelector(".table-body");
-
+const formContainerEl = document.querySelector(".form-container");
 const inputTitleEl = document.querySelector("#title");
 const inputAuthorEl = document.querySelector("#author");
 const inputPagesEl = document.querySelector("#pages");
 const inputCategoryEl = document.querySelector("#category");
 const inputCompletedEl = document.querySelector("#completed");
+const saveButtonEl = document.querySelector("#btn-save");
+const btnPlusEl = document.querySelector("#btn-plus");
+const btnMinusEl = document.querySelector("#btn-minus");
+
+const mainEl = document.querySelector("main");
+const tableBodyEl = document.querySelector(".table-body");
 
 let myLibrary = [
   {
@@ -227,3 +230,29 @@ const completedToggleHandler = function () {
 };
 
 completedToggleHandler();
+
+const showForm = function () {
+  btnPlusEl.addEventListener("click", function () {
+    formContainerEl.classList.remove("hidden");
+    formContainerEl.classList.add("visible");
+    btnPlusEl.classList.add("hidden");
+    btnPlusEl.classList.remove("visible");
+    btnMinusEl.classList.remove("hidden");
+    btnMinusEl.classList.add("visible");
+  });
+};
+
+showForm();
+
+const hideForm = function () {
+  btnMinusEl.addEventListener("click", function () {
+    formContainerEl.classList.add("hidden");
+    formContainerEl.classList.remove("visible");
+    btnMinusEl.classList.add("hidden");
+    btnMinusEl.classList.remove("visible");
+    btnPlusEl.classList.remove("hidden");
+    btnPlusEl.classList.add("visible");
+  });
+};
+
+hideForm();
