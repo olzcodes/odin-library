@@ -1,4 +1,5 @@
 const formContainerEl = document.querySelector(".form-container");
+const addBookformEl = document.querySelector("#add-book");
 const inputTitleEl = document.querySelector("#title");
 const inputAuthorEl = document.querySelector("#author");
 const inputPagesEl = document.querySelector("#pages");
@@ -115,6 +116,8 @@ const createNewBook = function () {
   const pages = Math.abs(parseInt(inputPagesEl.value)) || "-";
   const category = capitalize(inputCategoryEl.value) || "-";
   const completed = inputCompletedEl.checked;
+
+  addBookformEl.reset();
 
   newBook = new Book(title, author, pages, category, completed);
 };
