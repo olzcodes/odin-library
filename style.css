@@ -214,8 +214,7 @@ form input[type="checkbox"]:focus {
 }
 
 ::placeholder {
-  color: springgreen;
-  opacity: 0.5;
+  color: rgba(0, 255, 128, 0.5);
 }
 
 .form-drawer {
