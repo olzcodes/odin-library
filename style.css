@@ -222,7 +222,7 @@ form input[type="checkbox"]:focus {
 
 .toggle-form #btn-plus,
 .toggle-form #btn-minus {
-  height: 40px;
+  height: 38px;
   fill: springgreen;
   margin-top: -7px;
 }
