@@ -110,10 +110,10 @@ Book.prototype.info = function () {
 let newBook = {};
 
 const createNewBook = function () {
-  const title = inputTitleEl.value;
-  const author = inputAuthorEl.value;
-  const pages = inputPagesEl.value;
-  const category = inputCategoryEl.value;
+  const title = capitalize(inputTitleEl.value) || "-";
+  const author = capitalize(inputAuthorEl.value) || "-";
+  const pages = inputPagesEl.value || "-";
+  const category = capitalize(inputCategoryEl.value) || "-";
   const completed = inputCompletedEl.checked;
 
   newBook = new Book(title, author, pages, category, completed);
@@ -263,3 +263,15 @@ const hideForm = function () {
 };
 
 hideForm();
+
+const capitalize = function (string) {
+  if (!string) return;
+  const words = string.split(" ");
+  let newString = [];
+  for (word of words) {
+    if (!word[0]) continue;
+    newString.push(word[0].toUpperCase() + word.slice(1));
+  }
+  newString = newString.join(" ");
+  return newString;
+};
