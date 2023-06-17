@@ -20,17 +20,17 @@
   </header>
   <main>
     <div class="form-container hidden">
-      <form id="add-book" action="#">
-        <input id="title" name="title" type="text" placeholder="Title">
-        <input id="author" name="author" type="text" placeholder="Author">
-        <input id="pages" name="pages" type="number" placeholder="Pages">
+      <form id="add-book" action="">
+        <input id="title" name="title" type="text" placeholder="Title" required>
+        <input id="author" name="author" type="text" placeholder="Author" required>
+        <input id="pages" name="pages" type="number" min="1" step="1" placeholder="Pages">
         <input id="category" name="category" type="text" placeholder="Category">
         <div class="checkbox-container">
           <label for="completed" id="label-completed">Read</label>
           <input id="completed" name="completed" type="checkbox">
         </div>
       </form>
-      <button id="btn-save" type="submit">Save</button>
+      <button id="btn-save" type="submit" form="add-book">Save</button>
     </div>
     <div class="form-drawer">
       <svg id="btn-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
