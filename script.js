@@ -112,7 +112,7 @@ let newBook = {};
 const createNewBook = function () {
   const title = capitalize(inputTitleEl.value) || "-";
   const author = capitalize(inputAuthorEl.value) || "-";
-  const pages = parseInt(inputPagesEl.value) || "-";
+  const pages = Math.abs(parseInt(inputPagesEl.value)) || "-";
   const category = capitalize(inputCategoryEl.value) || "-";
   const completed = inputCompletedEl.checked;
 
