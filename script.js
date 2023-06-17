@@ -129,6 +129,11 @@ const addBookToLibrary = function () {
   completedToggleHandler();
 };
 
+// localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+// let storedLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+// console.log(localStorage.getItem("myLibrary"));
+// console.log(storedLibrary);
+
 const displayAllBooks = function () {
   tableBodyEl.innerHTML = ``;
   for (book of myLibrary) {
@@ -171,8 +176,9 @@ const displayAllBooks = function () {
 displayAllBooks();
 
 const saveButtonHandler = function () {
-  saveButtonEl.addEventListener("click", function () {
+  saveButtonEl.addEventListener("click", function (e) {
     if (!inputTitleEl.value || !inputAuthorEl.value) return;
+    e.preventDefault();
     addBookToLibrary();
   });
 };
