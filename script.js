@@ -5,6 +5,7 @@ const inputPagesEl = document.querySelector("#pages");
 const inputCategoryEl = document.querySelector("#category");
 const inputCompletedEl = document.querySelector("#completed");
 const saveButtonEl = document.querySelector("#btn-save");
+const formDrawerEl = document.querySelector(".form-drawer");
 const btnPlusEl = document.querySelector("#btn-plus");
 const btnMinusEl = document.querySelector("#btn-minus");
 
@@ -239,6 +240,7 @@ const showForm = function () {
     btnPlusEl.classList.remove("visible");
     btnMinusEl.classList.remove("hidden");
     btnMinusEl.classList.add("visible");
+    formDrawerEl.style.borderTop = "none";
   });
 };
 
@@ -252,6 +254,7 @@ const hideForm = function () {
     btnMinusEl.classList.remove("visible");
     btnPlusEl.classList.remove("hidden");
     btnPlusEl.classList.add("visible");
+    formDrawerEl.style.borderTop = "2px solid springgreen";
   });
 };
 
