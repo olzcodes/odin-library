@@ -120,6 +120,7 @@ form #completed {
 }
 
 button#btn-save {
+  width: 100%;
   background-color: darkslategray;
   color: springgreen;
   font-size: large;
@@ -210,6 +211,28 @@ form input[type="checkbox"]:focus {
 ::placeholder {
   color: springgreen;
   opacity: 0.5;
+}
+
+.toggle-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-form #btn-plus,
+.toggle-form #btn-minus {
+  height: 40px;
+  fill: springgreen;
+  margin-top: -7px;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: revert;
 }
 
 table {
