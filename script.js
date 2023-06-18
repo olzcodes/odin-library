@@ -149,6 +149,16 @@ const displayAllBooks = function () {
     bookId = book.bookId;
     tableBodyEl.innerHTML += `
     <tr class="${cssClass}">
+      <td class="td-remove">
+        <div class="remove-button" data-book-id="${bookId}">
+          x
+        </div>
+      </td>
+      <td class="td-completed">
+        <div class="completed-toggle ${cssClass}" data-book-id="${bookId}">
+          ${readStatus}
+        </div>
+      </td>
       <td class="td-title">
         ${title}
       </td>
@@ -160,16 +170,6 @@ const displayAllBooks = function () {
       </td>
       <td class="td-category">
         ${category}
-      </td>
-      <td class="td-completed">
-        <div class="completed-toggle ${cssClass}" data-book-id="${bookId}">
-          ${readStatus}
-        </div>
-      </td>
-      <td class="td-remove">
-        <div class="remove-button" data-book-id="${bookId}">
-          x
-        </div>
       </td>
     </tr>
     `;
