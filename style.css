@@ -198,8 +198,6 @@ form .checkbox-container > label {
 form input[type="checkbox"] {
   accent-color: springgreen;
   height: 25px;
-  border-radius: 5px;
-  padding: 0px;
   margin: 0px;
 }
 
