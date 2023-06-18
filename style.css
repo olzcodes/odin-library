@@ -83,9 +83,8 @@ main {
 }
 
 form#add-book {
-  color: black;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 80px 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   align-items: center;
   gap: 10px;
@@ -104,6 +103,7 @@ form #author {
 
 form #pages {
   grid-column: 1 / 2;
+  max-width: 80px;
 }
 
 form #category {
@@ -120,7 +120,6 @@ label#label-completed:hover {
 
 form #completed {
   grid-column: 4 / 5;
-  margin-right: 5px;
 }
 
 form #completed:hover {
@@ -197,15 +196,16 @@ form .checkbox-container > label {
 }
 
 form input[type="checkbox"] {
+  accent-color: springgreen;
   height: 25px;
   border-radius: 5px;
-  justify-self: end;
   padding: 0px;
   margin: 0px;
 }
 
-form input[type="checkbox"]:focus {
+form input[type="checkbox"]:checked {
   outline: none;
+  margin-right: -1px;
 }
 
 .table-container {
