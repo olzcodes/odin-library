@@ -264,7 +264,6 @@ th {
 
 .th-title,
 .td-title {
-  /* width: 25%; */
   text-align: start;
   padding: 0px 10px 0px;
   white-space: nowrap;
@@ -272,7 +271,6 @@ th {
 
 .th-author,
 .td-author {
-  /* width: 15%; */
   text-align: start;
   padding: 0px 10px 0px;
   white-space: nowrap;
@@ -280,14 +278,12 @@ th {
 
 .th-pages,
 .td-pages {
-  /* width: 8%; */
   text-align: end;
   padding: 0px 10px 0px;
 }
 
 .th-category,
 .td-category {
-  /* width: 12%; */
   text-align: center;
   padding: 0px 10px 0px;
   white-space: nowrap;
@@ -295,14 +291,12 @@ th {
 
 .th-completed,
 .td-completed {
-  /* width: 8%; */
   text-align: center;
   padding: 0px 10px 0px;
 }
 
 .th-remove,
 .td-remove {
-  /* width: 5%; */
   font-size: larger;
   text-align: center;
   color: salmon;
