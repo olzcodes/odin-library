@@ -270,13 +270,19 @@ th {
 }
 
 .btn-toggle-columns {
-  color: darkcyan;
+  width: 32px;
+  fill: darkslategray;
+  color: darkslategray;
   background-color: springgreen;
   border: 1px solid darkcyan;
   border-radius: 4px;
   float: right;
   margin-right: 10px;
-  padding: 0px 5px 2px;
+  padding: 3px 5px 0px;
+}
+
+.btn-toggle-columns:hover {
+  background-color: cyan;
 }
 
 .th-author,
