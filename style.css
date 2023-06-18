@@ -269,22 +269,6 @@ th {
   /* padding-left: 15px; */
 }
 
-.btn-toggle-columns {
-  width: 32px;
-  fill: darkslategray;
-  color: darkslategray;
-  background-color: springgreen;
-  border: 1px solid darkcyan;
-  border-radius: 4px;
-  float: right;
-  margin-right: 10px;
-  padding: 3px 5px 0px;
-}
-
-.btn-toggle-columns:hover {
-  background-color: cyan;
-}
-
 .th-author,
 .td-author {
   /* width: 15%; */
