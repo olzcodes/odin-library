@@ -13,7 +13,7 @@ const btnMinusEl = document.querySelector("#btn-minus");
 const mainEl = document.querySelector("main");
 const tableBodyEl = document.querySelector(".table-body");
 
-let myLibrary = [
+let poopLibrary = [
   {
     title: "The Lord of the Poops",
     author: "Unknown",
@@ -79,14 +79,6 @@ let myLibrary = [
     bookId: 2,
   },
   {
-    title: "Poop For Dummies - Part 2",
-    author: "Unknown",
-    pages: "8",
-    category: "Self-help",
-    completed: true,
-    bookId: 3,
-  },
-  {
     title: "The Wonderful World of Poop",
     author: "Unknown",
     pages: "32",
@@ -95,6 +87,13 @@ let myLibrary = [
     bookId: 4,
   },
 ];
+
+let myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+if (!myLibrary) myLibrary = poopLibrary;
+
+const saveToLocalStorage = function () {
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+};
 
 function Book(title, author, pages, category, completed) {
   this.title = title;
@@ -126,16 +125,12 @@ const addBookToLibrary = function () {
   createNewBook();
   newBook.bookId = new Date().getTime();
   myLibrary.unshift(newBook);
+  saveToLocalStorage();
   console.log(newBook.info());
   displayAllBooks();
   removeButtonHandler();
   completedToggleHandler();
 };
-
-// localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-// let storedLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-// console.log(localStorage.getItem("myLibrary"));
-// console.log(storedLibrary);
 
 const displayAllBooks = function () {
   tableBodyEl.innerHTML = ``;
@@ -203,6 +198,7 @@ const removeBookFromLibrary = function (bookId, button) {
   );
   if (!confirmedByUser) return;
   myLibrary.splice(bookIndex, 1);
+  saveToLocalStorage();
   button.parentNode.parentNode.remove();
 };
 
@@ -221,11 +217,13 @@ const toggleStatus = function (bookId, toggle) {
   let bookIndex = findBookIndex(bookId);
   if (myLibrary[bookIndex].completed) {
     myLibrary[bookIndex].completed = false;
+    saveToLocalStorage();
     toggle.textContent = "Unread";
     toggle.classList.remove("read");
     toggle.parentNode.parentNode.classList.remove("read");
   } else {
     myLibrary[bookIndex].completed = true;
+    saveToLocalStorage();
     toggle.textContent = "Read";
     toggle.classList.add("read");
     toggle.parentNode.parentNode.classList.add("read");
@@ -253,6 +251,7 @@ const showForm = function () {
     btnMinusEl.classList.remove("hidden");
     btnMinusEl.classList.add("visible");
     formDrawerEl.style.borderTop = "none";
+    inputTitleEl.focus();
   });
 };
 
