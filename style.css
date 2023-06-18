@@ -266,34 +266,38 @@ th {
 .td-title {
   /* width: 25%; */
   text-align: start;
-  /* padding-left: 15px; */
+  padding: 0px 10px 0px;
+  white-space: nowrap;
 }
 
 .th-author,
 .td-author {
   /* width: 15%; */
   text-align: start;
-  /* padding-left: 15px; */
+  padding: 0px 10px 0px;
+  white-space: nowrap;
 }
 
 .th-pages,
 .td-pages {
   /* width: 8%; */
   text-align: end;
-  /* padding-right: 15px; */
+  padding: 0px 10px 0px;
 }
 
 .th-category,
 .td-category {
   /* width: 12%; */
   text-align: center;
-  /* padding-left: 15px; */
+  padding: 0px 10px 0px;
+  white-space: nowrap;
 }
 
 .th-completed,
 .td-completed {
   /* width: 8%; */
   text-align: center;
+  padding: 0px 10px 0px;
 }
 
 .th-remove,
