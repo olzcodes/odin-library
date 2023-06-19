@@ -14,7 +14,7 @@
   --silver: silver;
 }
 
-:root.springgreen {
+:root.theme1 {
   --main-color: var(--springgreen);
   --background-color-dark: var(--darkslategray);
   --background-color-light: var(--darkcyan);
@@ -24,7 +24,7 @@
   --inactive-color: var(--silver);
 }
 
-:root.chartreuse {
+:root.theme2 {
   --main-color: var(--chartreuse);
   --background-color-dark: var(--darkslategray);
   --background-color-light: var(--darkcyan);
