@@ -410,12 +410,27 @@ const loadTableEventHandlers = function () {
   tdClickHandler();
 };
 
-const toggleColor = function () {
+const setTheme = function (theme) {
+  document.documentElement.className = theme;
+  localStorage.setItem("theme", theme);
+};
+
+const loadTheme = function () {
+  if (localStorage.getItem("theme") !== null) {
+    setTheme(localStorage.getItem("theme"));
+  } else {
+    setTheme("springgreen");
+  }
+};
+
+loadTheme();
+
+const toggleTheme = function () {
   h1El.addEventListener("click", function () {
-    document.documentElement.className === "springgreen"
-      ? (document.documentElement.className = "chartreuse")
-      : (document.documentElement.className = "springgreen");
+    document.documentElement.className === "chartreuse"
+      ? setTheme("springgreen")
+      : setTheme("chartreuse");
   });
 };
 
-toggleColor();
+toggleTheme();
