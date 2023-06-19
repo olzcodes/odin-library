@@ -10,20 +10,25 @@
   --gold: gold;
   --gold-60: rgba(255, 217, 0, 0.6);
   --silver: silver;
+}
 
+:root.springgreen {
   --main-color: var(--springgreen);
-  --main-color: var(--chartreuse);
-
   --background-color-dark: var(--darkslategray);
   --background-color-light: var(--darkcyan);
-
   --accent-color: var(--cyan);
-  --accent-color: var(--gold);
   --accent-color-60: var(--cyan-60);
-  --accent-color-60: var(--gold-60);
   --main-color-60: var(--springgreen-60);
-  --main-color-60: var(--chartreuse-60);
+  --inactive-color: var(--silver);
+}
 
+:root.chartreuse {
+  --main-color: var(--chartreuse);
+  --background-color-dark: var(--darkslategray);
+  --background-color-light: var(--darkcyan);
+  --accent-color: var(--gold);
+  --accent-color-60: var(--gold-60);
+  --main-color-60: var(--chartreuse-60);
   --inactive-color: var(--silver);
 }
 
