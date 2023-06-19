@@ -13,6 +13,9 @@ const btnMinusEl = document.querySelector("#btn-minus");
 const mainEl = document.querySelector("main");
 const tableBodyEl = document.querySelector(".table-body");
 
+let editMode = false;
+let editBookId = 0;
+
 let poopLibrary = [
   {
     title: "The Lord of the Poops",
@@ -121,15 +124,34 @@ const createNewBook = function () {
   newBook = new Book(title, author, pages, category, completed);
 };
 
+const editBook = function () {
+  let bookIndex = findBookIndex(editBookId);
+  myLibrary[bookIndex].title = capitalize(inputTitleEl.value) || "-";
+  myLibrary[bookIndex].author = capitalize(inputAuthorEl.value) || "-";
+  myLibrary[bookIndex].pages = Math.abs(parseInt(inputPagesEl.value)) || "-";
+  myLibrary[bookIndex].category = capitalize(inputCategoryEl.value) || "-";
+  myLibrary[bookIndex].completed = inputCompletedEl.checked;
+
+  addBookformEl.reset();
+
+  saveToLocalStorage();
+  displayAllBooks();
+  removeButtonHandler();
+  completedToggleHandler();
+  tdClickHandler();
+};
+
 const addBookToLibrary = function () {
   createNewBook();
   newBook.bookId = new Date().getTime();
   myLibrary.unshift(newBook);
+
   saveToLocalStorage();
   console.log(newBook.info());
   displayAllBooks();
   removeButtonHandler();
   completedToggleHandler();
+  tdClickHandler();
 };
 
 const displayAllBooks = function () {
@@ -143,7 +165,7 @@ const displayAllBooks = function () {
     book.completed ? (cssClass = "read") : (cssClass = "unread");
     bookId = book.bookId;
     tableBodyEl.innerHTML += `
-    <tr class="${cssClass}">
+    <tr class="${cssClass}" data-book-id="${bookId}">
       <td class="td-remove">
         <div class="remove-button" data-book-id="${bookId}">
           x
@@ -177,7 +199,11 @@ const saveButtonHandler = function () {
   saveButtonEl.addEventListener("click", function (e) {
     if (!inputTitleEl.value || !inputAuthorEl.value) return;
     e.preventDefault();
-    addBookToLibrary();
+    if (editMode === true) {
+      editBook();
+    } else {
+      addBookToLibrary();
+    }
   });
 };
 
@@ -242,20 +268,24 @@ const completedToggleHandler = function () {
 
 completedToggleHandler();
 
-const showForm = function () {
+const showForm = function (inputFocus) {
+  formContainerEl.classList.remove("hidden");
+  formContainerEl.classList.add("visible");
+  btnPlusEl.classList.add("hidden");
+  btnPlusEl.classList.remove("visible");
+  btnMinusEl.classList.remove("hidden");
+  btnMinusEl.classList.add("visible");
+  formDrawerEl.style.borderTop = "none";
+  inputFocus.focus();
+};
+
+const showFormHandler = function () {
   btnPlusEl.addEventListener("click", function () {
-    formContainerEl.classList.remove("hidden");
-    formContainerEl.classList.add("visible");
-    btnPlusEl.classList.add("hidden");
-    btnPlusEl.classList.remove("visible");
-    btnMinusEl.classList.remove("hidden");
-    btnMinusEl.classList.add("visible");
-    formDrawerEl.style.borderTop = "none";
-    inputTitleEl.focus();
+    showForm(inputTitleEl);
   });
 };
 
-showForm();
+showFormHandler();
 
 const hideForm = function () {
   btnMinusEl.addEventListener("click", function () {
@@ -282,3 +312,50 @@ const capitalize = function (string) {
   newString = newString.join(" ");
   return newString;
 };
+
+const loadBookDataIntoForm = function (bookId) {
+  let bookIndex = findBookIndex(bookId);
+  inputTitleEl.value = myLibrary[bookIndex].title;
+  inputAuthorEl.value = myLibrary[bookIndex].author;
+  inputPagesEl.value = myLibrary[bookIndex].pages;
+  inputCategoryEl.value = myLibrary[bookIndex].category;
+  myLibrary[bookIndex].completed
+    ? (inputCompletedEl.checked = true)
+    : (inputCompletedEl.checked = false);
+};
+
+const tdClickHandler = function () {
+  const tdTitleNodeList = document.querySelectorAll(".td-title");
+  const tdAuthorNodeList = document.querySelectorAll(".td-author");
+  const tdPagesNodeList = document.querySelectorAll(".td-pages");
+  const tdCategoryNodeList = document.querySelectorAll(".td-category");
+  const tdNodeLists = [
+    tdTitleNodeList,
+    tdAuthorNodeList,
+    tdPagesNodeList,
+    tdCategoryNodeList,
+  ];
+  const inputFields = [
+    inputTitleEl,
+    inputAuthorEl,
+    inputPagesEl,
+    inputCategoryEl,
+  ];
+
+  for (
+    let tdNodeListIndex = 0;
+    tdNodeListIndex < tdNodeLists.length;
+    tdNodeListIndex++
+  ) {
+    tdNodeLists[tdNodeListIndex].forEach((td) =>
+      td.addEventListener("click", function () {
+        loadBookDataIntoForm(td.parentNode.dataset.bookId);
+        showForm(inputFields[tdNodeListIndex]);
+        editMode = true;
+        editBookId = td.parentNode.dataset.bookId;
+      })
+    );
+  }
+};
+
+tdClickHandler();
