@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Electrolize&family=Nova+Mono&family=PT+Mono&family=Quicksand:wght@500");
+
 :root {
   --springgreen: springgreen;
   --springgreen-60: rgba(0, 255, 128, 0.6);
@@ -59,6 +61,7 @@ body {
   background-color: var(--background-color-dark);
   color: var(--main-color);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Quicksand", sans-serif;
   /* text-shadow: 0px 0px 9px; */
   margin: 0px 15px 0px 15px;
 }
