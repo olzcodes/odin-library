@@ -300,7 +300,7 @@ const hideForm = function () {
     btnMinus.classList.remove("visible");
     btnPlus.classList.remove("hidden");
     btnPlus.classList.add("visible");
-    formDrawerEl.style.borderTop = "2px solid springgreen";
+    formDrawerEl.style.borderTop = "2px solid var(--main-color)";
   });
 };
 
@@ -419,7 +419,7 @@ const loadTheme = function () {
   if (localStorage.getItem("theme") !== null) {
     setTheme(localStorage.getItem("theme"));
   } else {
-    setTheme("springgreen");
+    setTheme("theme1");
   }
 };
 
@@ -427,9 +427,9 @@ loadTheme();
 
 const toggleTheme = function () {
   h1El.addEventListener("click", function () {
-    document.documentElement.className === "chartreuse"
-      ? setTheme("springgreen")
-      : setTheme("chartreuse");
+    document.documentElement.className === "theme1"
+      ? setTheme("theme2")
+      : setTheme("theme1");
   });
 };
 
