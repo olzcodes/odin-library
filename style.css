@@ -70,6 +70,11 @@ h1:hover {
   cursor: pointer;
 }
 
+.menu button.pressed {
+  color: cyan;
+  border: 2px solid cyan;
+}
+
 main {
   width: 100%;
 }
