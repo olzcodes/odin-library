@@ -7,8 +7,8 @@ const inputCategoryEl = document.querySelector("#category");
 const inputCompletedEl = document.querySelector("#completed");
 const saveButtonEl = document.querySelector("#btn-save");
 const formDrawerEl = document.querySelector(".form-drawer");
-const btnPlusEl = document.querySelector("#btn-plus");
-const btnMinusEl = document.querySelector("#btn-minus");
+const btnPlus = document.querySelector("#btn-plus");
+const btnMinus = document.querySelector("#btn-minus");
 
 const mainEl = document.querySelector("main");
 const tableBodyEl = document.querySelector(".table-body");
@@ -275,16 +275,16 @@ completedToggleHandler();
 const showForm = function (inputFocus) {
   formContainerEl.classList.remove("hidden");
   formContainerEl.classList.add("visible");
-  btnPlusEl.classList.add("hidden");
-  btnPlusEl.classList.remove("visible");
-  btnMinusEl.classList.remove("hidden");
-  btnMinusEl.classList.add("visible");
+  btnPlus.classList.add("hidden");
+  btnPlus.classList.remove("visible");
+  btnMinus.classList.remove("hidden");
+  btnMinus.classList.add("visible");
   formDrawerEl.style.borderTop = "none";
   inputFocus.focus();
 };
 
 const showFormHandler = function () {
-  btnPlusEl.addEventListener("click", function () {
+  btnPlus.addEventListener("click", function () {
     showForm(inputTitleEl);
   });
 };
@@ -292,13 +292,13 @@ const showFormHandler = function () {
 showFormHandler();
 
 const hideForm = function () {
-  btnMinusEl.addEventListener("click", function () {
+  btnMinus.addEventListener("click", function () {
     formContainerEl.classList.add("hidden");
     formContainerEl.classList.remove("visible");
-    btnMinusEl.classList.add("hidden");
-    btnMinusEl.classList.remove("visible");
-    btnPlusEl.classList.remove("hidden");
-    btnPlusEl.classList.add("visible");
+    btnMinus.classList.add("hidden");
+    btnMinus.classList.remove("visible");
+    btnPlus.classList.remove("hidden");
+    btnPlus.classList.add("visible");
     formDrawerEl.style.borderTop = "2px solid springgreen";
   });
 };
