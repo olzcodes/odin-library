@@ -418,3 +418,15 @@ td {
   padding-bottom: 8px;
   border-bottom: 1px solid var(--main-color);
 }
+
+/* For larger screens */
+@media only screen and (min-width: 850px) {
+  html {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
