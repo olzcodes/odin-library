@@ -200,6 +200,7 @@ const saveButtonHandler = function () {
     if (!inputTitleEl.value || !inputAuthorEl.value) return;
     e.preventDefault();
     if (editMode === true) {
+      editMode = false;
       editBook();
     } else {
       addBookToLibrary();
