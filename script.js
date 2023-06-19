@@ -16,6 +16,11 @@ const tableBodyEl = document.querySelector(".table-body");
 let editMode = false;
 let editBookId = 0;
 
+const btnShowAllBooks = document.querySelector(".btn-all");
+const btnShowReadBooks = document.querySelector(".btn-read");
+const btnShowUnreadBooks = document.querySelector(".btn-unread");
+let filtering = "showAll";
+
 let poopLibrary = [
   {
     title: "The Lord of the Poops",
@@ -136,9 +141,7 @@ const editBook = function () {
 
   saveToLocalStorage();
   displayAllBooks();
-  removeButtonHandler();
-  completedToggleHandler();
-  tdClickHandler();
+  loadTableEventHandlers();
 };
 
 const addBookToLibrary = function () {
@@ -149,14 +152,14 @@ const addBookToLibrary = function () {
   saveToLocalStorage();
   console.log(newBook.info());
   displayAllBooks();
-  removeButtonHandler();
-  completedToggleHandler();
-  tdClickHandler();
+  loadTableEventHandlers();
 };
 
 const displayAllBooks = function () {
   tableBodyEl.innerHTML = ``;
   for (book of myLibrary) {
+    if (filtering === "showReadOnly" && !book.completed) continue;
+    if (filtering === "showUnreadOnly" && book.completed) continue;
     title = book.title;
     author = book.author;
     pages = book.pages;
@@ -360,3 +363,48 @@ const tdClickHandler = function () {
 };
 
 tdClickHandler();
+
+const showAllBooks = function () {
+  btnShowAllBooks.addEventListener("click", function () {
+    btnShowAllBooks.classList.add("pressed");
+    btnShowReadBooks.classList.remove("pressed");
+    btnShowUnreadBooks.classList.remove("pressed");
+    filtering = "showAll";
+    displayAllBooks();
+    loadTableEventHandlers();
+  });
+};
+
+showAllBooks();
+
+const showReadBooks = function () {
+  btnShowReadBooks.addEventListener("click", function () {
+    btnShowAllBooks.classList.remove("pressed");
+    btnShowReadBooks.classList.add("pressed");
+    btnShowUnreadBooks.classList.remove("pressed");
+    filtering = "showReadOnly";
+    displayAllBooks();
+    loadTableEventHandlers();
+  });
+};
+
+showReadBooks();
+
+const showUnreadBooks = function () {
+  btnShowUnreadBooks.addEventListener("click", function () {
+    btnShowAllBooks.classList.remove("pressed");
+    btnShowReadBooks.classList.remove("pressed");
+    btnShowUnreadBooks.classList.add("pressed");
+    filtering = "showUnreadOnly";
+    displayAllBooks();
+    loadTableEventHandlers();
+  });
+};
+
+showUnreadBooks();
+
+const loadTableEventHandlers = function () {
+  removeButtonHandler();
+  completedToggleHandler();
+  tdClickHandler();
+};
