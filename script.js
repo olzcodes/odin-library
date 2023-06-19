@@ -1,3 +1,4 @@
+const h1El = document.querySelector("h1");
 const formContainerEl = document.querySelector(".form-container");
 const addBookformEl = document.querySelector("#add-book");
 const inputTitleEl = document.querySelector("#title");
@@ -408,3 +409,13 @@ const loadTableEventHandlers = function () {
   completedToggleHandler();
   tdClickHandler();
 };
+
+const toggleColor = function () {
+  h1El.addEventListener("click", function () {
+    document.documentElement.className === "springgreen"
+      ? (document.documentElement.className = "chartreuse")
+      : (document.documentElement.className = "springgreen");
+  });
+};
+
+toggleColor();
