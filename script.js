@@ -176,7 +176,7 @@ const displayAllBooks = function () {
         </div>
       </td>
       <td class="td-completed">
-        <div class="completed-toggle ${cssClass}" data-book-id="${bookId}">
+        <div class="completed-button ${cssClass}" data-book-id="${bookId}">
           ${readStatus}
         </div>
       </td>
@@ -244,29 +244,29 @@ const removeButtonHandler = function () {
 
 removeButtonHandler();
 
-const toggleStatus = function (bookId, toggle) {
+const toggleStatus = function (bookId, button) {
   let bookIndex = findBookIndex(bookId);
   if (myLibrary[bookIndex].completed) {
     myLibrary[bookIndex].completed = false;
     saveToLocalStorage();
-    toggle.textContent = "Unread";
-    toggle.classList.remove("read");
-    toggle.parentNode.parentNode.classList.remove("read");
+    button.textContent = "Unread";
+    button.classList.remove("read");
+    button.parentNode.parentNode.classList.remove("read");
   } else {
     myLibrary[bookIndex].completed = true;
     saveToLocalStorage();
-    toggle.textContent = "Read";
-    toggle.classList.add("read");
-    toggle.parentNode.parentNode.classList.add("read");
+    button.textContent = "Read";
+    button.classList.add("read");
+    button.parentNode.parentNode.classList.add("read");
   }
 };
 
 const completedToggleHandler = function () {
-  const completedToggleNodeList =
-    document.querySelectorAll(".completed-toggle");
-  completedToggleNodeList.forEach((toggle) =>
-    toggle.addEventListener("click", function () {
-      toggleStatus(toggle.dataset.bookId, toggle);
+  const completedButtonNodeList =
+    document.querySelectorAll(".completed-button");
+  completedButtonNodeList.forEach((button) =>
+    button.addEventListener("click", function () {
+      toggleStatus(button.dataset.bookId, button);
     })
   );
 };
