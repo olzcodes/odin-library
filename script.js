@@ -171,12 +171,12 @@ const displayAllBooks = function () {
     tableBodyEl.innerHTML += `
     <tr class="${cssClass}" data-book-id="${bookId}">
       <td class="td-remove">
-        <div class="remove-button" data-book-id="${bookId}">
+        <div class="remove-button"">
           x
         </div>
       </td>
       <td class="td-completed">
-        <div class="completed-button ${cssClass}" data-book-id="${bookId}">
+        <div class="completed-button ${cssClass}"">
           ${readStatus}
         </div>
       </td>
@@ -237,7 +237,10 @@ const removeButtonHandler = function () {
   const removeButtonNodeList = document.querySelectorAll(".remove-button");
   removeButtonNodeList.forEach((button) =>
     button.addEventListener("click", function () {
-      removeBookFromLibrary(button.dataset.bookId, button);
+      removeBookFromLibrary(
+        button.parentNode.parentNode.dataset.bookId,
+        button
+      );
     })
   );
 };
@@ -266,7 +269,7 @@ const completedToggleHandler = function () {
     document.querySelectorAll(".completed-button");
   completedButtonNodeList.forEach((button) =>
     button.addEventListener("click", function () {
-      toggleStatus(button.dataset.bookId, button);
+      toggleStatus(button.parentNode.parentNode.dataset.bookId, button);
     })
   );
 };
