@@ -11,7 +11,7 @@ https://www.theodinproject.com/lessons/node-path-javascript-library
 Screenshot on mobile screen (default theme)
 ![screenshot on mobile screen](./screenshots/screenshot-mobile.png)
 
-Screenshot on larger screen (alternative theme)
+Screenshot on larger screen (alternative theme + input form open)
 ![screenshot on larger screen](./screenshots/screenshot-desktop.png)
 
 ## Extra Features
