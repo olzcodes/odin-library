@@ -321,8 +321,8 @@ const capitalize = function (string) {
   return newString;
 };
 
-const loadBookDataIntoForm = function (bookId) {
-  let bookIndex = findBookIndex(bookId);
+const loadBookDataIntoForm = function (editBookId) {
+  let bookIndex = findBookIndex(editBookId);
   inputTitleEl.value = myLibrary[bookIndex].title;
   inputAuthorEl.value = myLibrary[bookIndex].author;
   inputPagesEl.value = myLibrary[bookIndex].pages;
@@ -357,10 +357,10 @@ const tdClickHandler = function () {
   ) {
     tdNodeLists[tdNodeListIndex].forEach((td) =>
       td.addEventListener("click", function () {
-        loadBookDataIntoForm(td.parentNode.dataset.bookId);
-        showForm(inputFields[tdNodeListIndex]);
         editMode = true;
         editBookId = td.parentNode.dataset.bookId;
+        loadBookDataIntoForm(editBookId);
+        showForm(inputFields[tdNodeListIndex]);
       })
     );
   }
