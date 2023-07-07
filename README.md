@@ -29,6 +29,6 @@ The features below were outside of the project scope but I wanted to build them 
 
 - How to use a constructor function to create new objects.
 - How to use the Web Storage API to store and access data in the browser's memory.
-- How to associate HTML elements to objects using unique identifiers.
+- How to associate HTML elements with objects using unique identifiers.
 - How to use the unique identifiers to retrieve and edit specific objects.
 - Standard practice for setting up themes in CSS and JavaScript.
