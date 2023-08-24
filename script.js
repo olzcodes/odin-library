@@ -104,17 +104,19 @@ const saveToLocalStorage = function () {
   localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 };
 
-function Book(title, author, pages, category, completed) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.category = category;
-  this.completed = completed;
-}
+class Book {
+  constructor(title, author, pages, category, completed) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.category = category;
+    this.completed = completed;
+  }
 
-Book.prototype.info = function () {
-  return `'${this.title}' by ${this.author}, ${this.pages} pages`;
-};
+  info() {
+    return `'${this.title}' by ${this.author}, ${this.pages} pages`;
+  }
+}
 
 let newBook = {};
 
