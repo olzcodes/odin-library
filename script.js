@@ -417,12 +417,12 @@ const loadTableEventHandlers = function () {
 
 const setTheme = function (theme) {
   document.documentElement.className = theme;
-  localStorage.setItem("theme", theme);
+  localStorage.setItem("odin-library-theme", theme);
 };
 
 const loadTheme = function () {
-  if (localStorage.getItem("theme") !== null) {
-    setTheme(localStorage.getItem("theme"));
+  if (localStorage.getItem("odin-library-theme") !== null) {
+    setTheme(localStorage.getItem("odin-library-theme"));
   } else {
     setTheme("theme1");
   }
